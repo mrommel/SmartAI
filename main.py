@@ -15,6 +15,11 @@ from genetic_algorithm.genetic_algorithm import GeneticAlgorithm
 random.seed(datetime.now().timestamp())
 
 data = SampleData()
+
+# x * y
+# best formula found: ((-2.03e-08 ^ -1.519e+254) + (x * y)) + (sin(1.74e-15) - (1.515e-168 + 1.167e-245))
+# -2.03e-08 ^ -1.519e+254 => 0.0 (inf is evaluated to zero)
+# (sin(1.74e-15) - (1.515e-168 + 1.167e-245)) => 0.0
 data.add_values(values={'x': 4.0, 'y': 3.0}, expected=12.0)
 data.add_values(values={'x': 27.0, 'y': 2.0}, expected=54.0)
 data.add_values(values={'x': 1.0, 'y': 18.0}, expected=18.0)
@@ -23,6 +28,18 @@ data.add_values(values={'x': 12.0, 'y': 4.5}, expected=54.0)
 data.add_values(values={'x': 1.5, 'y': 4.5}, expected=6.75)
 data.add_values(values={'x': 25.4, 'y': 5.0}, expected=127.0)
 data.add_values(values={'x': 20.0, 'y': 17.5}, expected=350.0)
+
+# x * sin(y) + 0.5
+# best formula found: (sin((-6.012e-248 + -4.833e+148)) + (sin(y) * |x|))
+# sin((-6.012e-248 + -4.833e+148)) => 0.48779520519
+# data.add_values(values={'x': 4.0, 'y': 3.0}, expected=1.06448003223947)
+# data.add_values(values={'x': 27.0, 'y': 2.0}, expected=25.0510305242934)
+# data.add_values(values={'x': 1.0, 'y': 18.0}, expected=-0.250987246771676)
+# data.add_values(values={'x': 5.0, 'y': 10.0}, expected=-2.22010555444685)
+# data.add_values(values={'x': 12.0, 'y': 4.5}, expected=-11.2303614119812)
+# data.add_values(values={'x': 1.5, 'y': 4.5}, expected=-0.966295176497646)
+# data.add_values(values={'x': 25.4, 'y': 5.0}, expected=-23.8566765764437)
+# data.add_values(values={'x': 20.0, 'y': 17.5}, expected=-19.0125201093632)
 
 var_names = ['x', 'y']
 
