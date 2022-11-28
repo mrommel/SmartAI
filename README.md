@@ -36,9 +36,6 @@ When the network is running for 1000 iterations.
 
 ```
 # Run 1000 iteration of the algorithm
-# You can call the method several times and adjust some parameters
-# (e.g. number_of_pairs, selective_pressure, mutation_rate,
-# allow_random_parent, single_point_cross_over)
 ga.run(1000)
 ```
 
