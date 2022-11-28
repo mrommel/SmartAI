@@ -1,9 +1,9 @@
 import unittest
 
-from genetic_algorithm.function_tree import FunctionTree
+from genetic_algorithm.function_tree import FunctionTree, FunctionType
 
 
-class UtilsTestCase(unittest.TestCase):
+class FunctionTreeTestCase(unittest.TestCase):
 
 	def test_deserialize_node_value(self):
 		"""
@@ -81,11 +81,12 @@ class UtilsTestCase(unittest.TestCase):
 		"""
 			tree
 		"""
-		tree_val = '00111100000000001001001000011100101011000000100000110001001001101111' \
+		tree_val = '01001100000000001001001000011100101011000000100000110001001001101111' \
 					'00000100000000001001001000011100101011000000100000110001001001101111' \
 					'00000100000000001001001000011100101011000000100000110001001001101111'
 		func = FunctionTree(tree_val)
 
+		assert func.function_type == FunctionType.Multiplication
 		assert func.evaluate({}) == 9.86902225
 
 	def test_as_function_node_value(self):
@@ -106,7 +107,7 @@ class UtilsTestCase(unittest.TestCase):
 
 		assert func.as_function() == 'a'
 
-	def test_evaluate_tree_sum(self):
+	def test_as_function_tree_sum(self):
 		"""
 			tree
 		"""
@@ -117,11 +118,11 @@ class UtilsTestCase(unittest.TestCase):
 
 		assert func.as_function() == '(3.142 + 3.142)'
 
-	def test_evaluate_tree_mul(self):
+	def test_as_function_tree_mul(self):
 		"""
 			tree
 		"""
-		tree_val = '00111100000000001001001000011100101011000000100000110001001001101111' \
+		tree_val = '01001100000000001001001000011100101011000000100000110001001001101111' \
 					'00000100000000001001001000011100101011000000100000110001001001101111' \
 					'00000100000000001001001000011100101011000000100000110001001001101111'
 		func = FunctionTree(tree_val)

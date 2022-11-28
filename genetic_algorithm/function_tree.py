@@ -16,7 +16,6 @@ class FunctionType(Enum):
 	Absolute = 8
 
 
-
 def convert_int_to_function_type(int_value):
 	try:
 		function_type_from_int = FunctionType(int_value % len(FunctionType))
